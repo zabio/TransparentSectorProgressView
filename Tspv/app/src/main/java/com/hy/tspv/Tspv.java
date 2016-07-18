@@ -72,9 +72,15 @@ public class Tspv extends View {
 
 
     public void setPercent(int percent) {
-        float degree = percent * 3.6f;
-        updateArgs(degree);
-        refreshTheLayout();
+        final float degree = percent * 3.6f;
+        post(new Runnable() {
+            @Override
+            public void run() {
+                updateArgs(degree);
+                refreshTheLayout();
+
+            }
+        });
     }
 
 
